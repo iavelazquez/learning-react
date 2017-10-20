@@ -1,0 +1,61 @@
+p.title {
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.item {
+  text-align: left;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  display: inline-block;
+  height: 150px;
+  padding: 5px 15px;
+  width: 20%;
+  margin: 0 10px;
+
+}
+
+.item > button {
+  font-size: 1em;
+  background-color: #fc0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+}
+
+.review-item {
+  background-color: #fff;
+  margin: 10px auto;
+  padding: 10px 15px;
+  text-align: left;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.review-item .review {
+  margin-top:-2px;
+  font-size: 14px;
+  color: #666;
+}
+
+.sub-header {
+  font-size: 0.8em;
+}
+
+.sub-header > span.separator {
+  padding: 0 12px;
+}
+
+form label {
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+
+form input.reviews {
+  width: 30%;
+  height: 20px;
+  border-radius: 1px;
+  border: none;
+  margin: 5px 0;
+}

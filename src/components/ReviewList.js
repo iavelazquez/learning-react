@@ -1,6 +1,11 @@
 import React from 'react';
+
 import '../styles/common.css';
 
+import PropTypes from 'prop-types';
+
+
+//PropTypes.checkPropTypes(myPropTypes, props, 'props', 'ReviewList' );
 
 const ReviewItem = (props) => {
 
@@ -19,6 +24,7 @@ const ReviewItem = (props) => {
 }
 
 export const ReviewList = (props) => {
+    console.log('Review List:');
     console.log(props);
     return (
         <div>
@@ -28,7 +34,12 @@ export const ReviewList = (props) => {
     )
 }
 
+// ReviewList.propTypes = {
+//     reviews : PropTypes.array.isRequired
+// };
+
 const ReviewInput = (props) => {
+    //console.log(props);
     return (
         <div>
             <label>{props.name}</label>
@@ -46,9 +57,9 @@ const ReviewInput = (props) => {
 
 export const ReviewForm = (props) => {
 
+    //<ReviewList reviews={props.reviews} />
     return (
         <div>
-            <ReviewList reviews={props.reviews} />
             <form onSubmit={props.onSubmit}>
                 {props.inputs.map(input => <ReviewInput {...input} key={input.name}/> )}
                 <button type="submit" name="enviar" value="Enviar">Enviar</button>

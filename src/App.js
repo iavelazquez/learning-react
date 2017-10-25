@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import ItemList from './components/ItemList';
 //import ReviewForm from './components/ReviewList';
-import {ReviewForm} from './components/ReviewList';
+import {ReviewList, ReviewForm} from './components/ReviewList';
+
+
+
 
 class App extends Component {
 
   state = {
+
     items: [
       {
         title: "Self-Storage",
@@ -84,9 +87,9 @@ class App extends Component {
     e.persist();
     e.preventDefault();
     
-    console.log(e.target[0].value);
-    console.log(e.target[1].value);
-    console.log(e.target[2].value);
+    // console.log(e.target[0].value);
+    // console.log(e.target[1].value);
+    // console.log(e.target[2].value);
 
     let reviewItem = {
       title: e.target[1].value,
@@ -94,15 +97,27 @@ class App extends Component {
       date: "19/10/2017",
       stars: 5
     }
-
-    console.log(this.state.reviews);
     
-    this.setState (prevState => ({
-      reviews: prevState.reviews.push(reviewItem)
+    // FIRST IMPLEMENTATION (With .concat)
+    this.setState(prevState => ({
+      reviews: prevState.reviews.concat(reviewItem)
     }));
 
-    
+    // SECOND
+    //let newItem = this.state.reviews.push(reviewItem);
+    //this.state.reviews.push(reviewItem);
 
+    // Funciona con el prevState aunque en realidad no se está usando en el setState.
+    // this.setState (prevState => ({
+    //   reviews: this.state.reviews
+    // }));
+
+    // THIRD
+    // this.state.reviews.push(reviewItem);
+    
+    // this.setState ({
+    //   reviews: this.state.reviews
+    // });
   }
 
   render() {
@@ -116,7 +131,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ItemList items={this.state.items}/>
-        <ReviewForm onSubmit={this.handleSubmit} reviews={this.state.reviews} inputs={this.state.inputs}/>
+        <ReviewList reviews={this.state.reviews} />
+        <ReviewForm onSubmit={this.handleSubmit} inputs={this.state.inputs}/>
       </div>
     );
   }
